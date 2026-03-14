@@ -108,13 +108,22 @@ resource "aws_security_group" "web" {
   }
 
   # Allow all outbound
-  egress {
-    from_port   = 0
-    to_port     = 0
-    protocol    = "-1"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
+  # Allow only HTTP outbound - AI remediation fix
+egress {
+  description = "Allow HTTP outbound only"
+  from_port   = 80
+  to_port     = 80
+  protocol    = "tcp"
+  cidr_blocks = ["0.0.0.0/0"]
+}
 
+egress {
+  description = "Allow HTTPS outbound only"
+  from_port   = 443
+  to_port     = 443
+  protocol    = "tcp"
+  cidr_blocks = ["0.0.0.0/0"]
+}
   tags = {
     Name    = "${var.project_name}-sg"
     Project = var.project_name
