@@ -176,14 +176,7 @@ Screenshots are in the screenshots/ directory.
 
 **Prompt Used:**
 
-"Here is a Trivy security scan report from my Terraform infrastructure code:
-
-AWS-0104 (CRITICAL): Security group rule allows unrestricted egress to any IP address.
-Opening up ports to connect out to the public internet is generally to be avoided.
-main.tf:115 via main.tf:111-116 (egress) via main.tf:78-122 (aws_security_group.web)
-cidr_blocks = 0.0.0.0/0
-
-Please explain what this vulnerability means, what the risk is, and give me the fixed Terraform code."
+"I got this Trivy error on my Terraform code - AWS-0104 CRITICAL, security group allows unrestricted egress, cidr_blocks = 0.0.0.0/0 on line 115 of main.tf. What does this mean and how do I fix i"
 
 **Summary of Identified Risks**
 
